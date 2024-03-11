@@ -17,7 +17,7 @@ export default defineConfig({
       },
     ],
   },
-  base: '/task-todo', // * <REPO> * //
+  base: '/taskpro-todo', // * <REPO> * //
   test: {
     globals: true,
     environment: 'jsdom',
