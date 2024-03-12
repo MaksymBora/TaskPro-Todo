@@ -23,20 +23,6 @@
   cursor: pointer;
 }
 
-.themeForm {
-  width: 68px;
-  margin-right: 14px;
-}
-
-.selectLabel {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .themeSelect {
   display: block;
   padding: 4px 0;
@@ -54,6 +40,8 @@
     border-color: blue;
   }
 }
+
+/* Custom Select */
 
 .userName {
   margin-right: 8px;

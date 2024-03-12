@@ -1,0 +1,24 @@
+.themeWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  margin-right: 14px;
+}
+
+.themeButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 68px;
+  height: 21px;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.8);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
