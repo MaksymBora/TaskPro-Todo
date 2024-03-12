@@ -1,0 +1,94 @@
+.header {
+  width: 100%;
+  background-color: var(--primary-color-white);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.themeForm {
+  width: 68px;
+  margin-right: 14px;
+}
+
+.selectLabel {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.themeSelect {
+  display: block;
+  padding: 4px 0;
+  width: 100%;
+  font-size: 14px;
+  color: var(--primary-color-black);
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+    border-color: blue;
+  }
+}
+
+.userName {
+  margin-right: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+}
+
+.avatar {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.labelAvatar {
+  position: absolute;
+  top: 22px;
+  left: 8px;
+  background-color: var(--primary-color-green);
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.avatarSelect {
+  position: absolute;
+  top: 22px;
+  left: 7px;
+  font-size: 0;
+  z-index: -1;
+  opacity: 0;
+  cursor: pointer;
+}
