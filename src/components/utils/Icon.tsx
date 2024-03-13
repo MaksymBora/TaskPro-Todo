@@ -9,6 +9,7 @@ interface SpritePropsTypes {
   height: string;
   fill?: string;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 const Icon: React.FC<SpritePropsTypes> = ({
@@ -17,9 +18,16 @@ const Icon: React.FC<SpritePropsTypes> = ({
   height,
   fill = 'currentColor',
   style,
+  className,
 }) => {
   return (
-    <svg width={width} height={height} fill={fill} style={{ ...style }}>
+    <svg
+      width={width}
+      height={height}
+      fill={fill}
+      style={{ ...style }}
+      className={className}
+    >
       <use href={sprite + '#' + name}></use>
     </svg>
   );
@@ -28,6 +36,7 @@ const Icon: React.FC<SpritePropsTypes> = ({
 Icon.defaultProps = {
   fill: 'currentColor',
   style: {},
+  className: '',
 };
 
 export default Icon;
