@@ -2,6 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 10;
   padding-top: 14px;
   padding-bottom: 24px;
   width: 225px;
@@ -70,6 +71,10 @@
   }
 }
 
+.boardsList {
+  margin-bottom: 24px;
+}
+
 .boardItem {
   position: relative;
   display: flex;
@@ -133,7 +138,73 @@
 
 .hoverOnIcon {
   cursor: pointer;
+  transition: fill 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   &:hover {
     fill: black;
+  }
+}
+
+/* Help Section */
+
+.helpSection {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
+  padding: 14px;
+  border-radius: 8px;
+  width: 197px;
+  height: 238px;
+  background-color: #f6f6f7;
+}
+
+.imgFlowers {
+  margin-bottom: 14px;
+}
+
+.helpInfo {
+  margin-bottom: 18px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+}
+
+.textHighlight {
+  color: var(--primary-color-green);
+}
+
+.helpButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+
+  cursor: pointer;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 16px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary-color-black);
+  cursor: pointer;
+  transition: fill 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover svg {
+    fill: var(--primary-color-green-hover);
   }
 }

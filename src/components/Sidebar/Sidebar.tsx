@@ -1,6 +1,9 @@
 import { FC } from 'react';
 import css from './Sidebar.module.css';
 import Icon from '../utils/Icon';
+import flowersImg1x from '../../assets/images/help@x1.png';
+import flowersImg2x from '../../assets/images/help@x2.png';
+import flowersImg3x from '../../assets/images/help@x3.png';
 
 const {
   sidebarContainer,
@@ -17,6 +20,12 @@ const {
   iconsWrapper,
   hoverOnIcon,
   boardHoverIcon,
+  helpSection,
+  imgFlowers,
+  helpInfo,
+  textHighlight,
+  helpButton,
+  logoutButton,
 } = css;
 
 export const Sidebar: FC = () => {
@@ -96,21 +105,30 @@ export const Sidebar: FC = () => {
         </li>
       </ul>
 
-      <div>
-        <p>img</p>
-        <p>
-          If you need help with <span>TaskPro</span>, check out our support
-          resources or reach out to our customer support team.
+      <section className={helpSection}>
+        <img
+          className={imgFlowers}
+          src={flowersImg1x}
+          srcSet={`${flowersImg2x} 2x, ${flowersImg3x} 3x`}
+          alt="Flowers"
+          width="54px"
+        />
+        <p className={helpInfo}>
+          If you need help with <span className={textHighlight}>TaskPro</span>,
+          check out our support resources or reach out to our customer support
+          team.
         </p>
-        <div>
-          <p>i</p>
-          <p>Need help?</p>
-        </div>
-      </div>
 
-      <div>
-        <button type="button">Log out</button>
-      </div>
+        <button className={helpButton} type="button">
+          <Icon name="icon-help-circle" width="20px" height="20px" />
+          Need help ?
+        </button>
+      </section>
+
+      <button className={logoutButton} type="button">
+        <Icon name="icon-login" width="32px" height="32px" fill="#bedbb0" />
+        Log out
+      </button>
     </div>
   );
 };
