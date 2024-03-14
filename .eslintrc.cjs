@@ -46,6 +46,9 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/extensions': 0,
     'no-console': 'off',
+    'click-events-have-key-events': 0,
+    'no-static-element-interactions': 0,
+    'no-noninteractive-element-interactions': 0,
     'react/function-component-definition': [
       2,
       {

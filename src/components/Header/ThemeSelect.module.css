@@ -22,12 +22,20 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color-green-hover);
+    svg {
+      fill: var(--primary-color-green-hover);
+    }
+  }
 }
 
 .dropdownMenu {
   position: absolute;
-  top: 40px;
-  right: 10px;
+  top: 50px;
+  left: -25px;
   z-index: 1;
   display: flex;
   flex-direction: column;

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import css from './ThemeSelect.module.css';
 
 interface ThemeButtonProps {
@@ -22,6 +22,24 @@ const ThemeButton: FC<ThemeButtonProps> = ({ theme, onClick }) => {
 export const DropdownMenu: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   const handleTheme = () => {
     setIsOpen(prevState => !prevState);
@@ -39,7 +57,7 @@ export const DropdownMenu: FC = () => {
   // }, [selectedTheme]);
 
   return (
-    <div className={css.themeWrapper}>
+    <div ref={dropdownRef} className={css.themeWrapper}>
       <button type="button" className={css.themeButton} onClick={handleTheme}>
         Theme
         <svg fill="#161616" viewBox="0 0 32 32" width="16px" height="16px">

@@ -8,6 +8,8 @@
   --primary-color-gray: rgba(22, 22, 22, 0.3);
   --primary-color-headerBg: #fcfcfc;
   --primary-color-body-background: #f6f6f7;
+
+  --primary-color-boxshadow: 0px 0px 7px 0px rgba(178, 237, 195, 0.61);
 }
 
 * {
