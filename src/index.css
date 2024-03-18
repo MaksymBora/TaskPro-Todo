@@ -10,6 +10,12 @@
   --primary-color-body-background: #f6f6f7;
 
   --primary-color-boxshadow: 0px 0px 7px 0px rgba(178, 237, 195, 0.61);
+
+  --container-mobile: 335px;
+  --container-tablet: 704px;
+  --container-desktop: 1376px;
+
+  --padding-container-tablet: 18px 32px;
 }
 
 * {

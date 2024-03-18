@@ -4,10 +4,36 @@
 }
 
 .container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
+
+  @media screen and (min-width: 375px) {
+    min-width: var(--container-mobile);
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: var(--container-tablet);
+    padding: var(--padding-container-tablet);
+  }
+
+  @media screen and (min-width: 1440px) {
+    justify-content: flex-end;
+    min-width: var(--container-desktop);
+  }
+}
+
+.burberMenuIcon {
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
 }
 
 .nav {

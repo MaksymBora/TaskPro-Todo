@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FC } from 'react';
 import css from './Sidebar.module.css';
 import Icon from '../utils/Icon';

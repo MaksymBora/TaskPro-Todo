@@ -15,7 +15,13 @@ const Header: FC = () => {
           className={css.burgerMenuButton}
           onClick={() => setSidebarIsOpen(prevState => !prevState)}
         >
-          <Icon name="icon-burger" width="24px" height="24px" fill="#161616" />
+          <Icon
+            name="icon-burger"
+            width="24px"
+            height="24px"
+            fill="#161616"
+            className={css.burberMenuIcon}
+          />
         </button>
 
         <Sidebar

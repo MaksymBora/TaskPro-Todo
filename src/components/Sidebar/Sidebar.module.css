@@ -11,12 +11,6 @@
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.isOpen {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
 .sidebarContainer {
   position: absolute;
   top: 0;
@@ -28,8 +22,28 @@
   overflow-y: scroll;
   transform: translateX(-100%);
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
-
   background-color: var(--primary-color-white);
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px rgba(178, 237, 195, 0.61);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-green-hover);
+    border-radius: 4px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    transform: none;
+  }
 }
 
 .isVisible {
@@ -42,6 +56,10 @@
   gap: 8px;
   margin-bottom: 70px;
   margin-left: 14px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
 }
 
 .logoName {
@@ -180,6 +198,11 @@
   width: 197px;
   height: 238px;
   background-color: #f6f6f7;
+
+  @media screen and (min-width: 768px) {
+    width: 212px;
+    height: 272px;
+  }
 }
 
 .imgFlowers {
@@ -193,6 +216,11 @@
   line-height: 133%;
   letter-spacing: -0.02em;
   color: var(--primary-color-black);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 143%;
+  }
 }
 
 .textHighlight {
