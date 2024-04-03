@@ -15,8 +15,8 @@
   @media screen and (min-width: 1440px) {
     width: calc(100% - var(--sidebar-desktop-width));
     display: flex;
+    flex-direction: column;
     align-items: self-start;
-    justify-content: end;
     padding: 14px 24px;
     margin-left: auto;
   }
@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  margin-bottom: 39px;
 }
 
 .projectName {
@@ -64,6 +65,49 @@
   }
 }
 
-.boardCreation {
+.boardCreationSpan {
   color: var(--primary-color-green-hover);
+}
+
+/* New Columns */
+
+.createColumnBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 56px;
+  padding: 14px 0;
+  margin: 0 auto;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-color-white);
+
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+  cursor: pointer;
+  transition:
+    color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color-white);
+    background-color: var(--primary-color-green-hover);
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
+}
+
+.addColumnIcon {
+  width: 28px;
+  height: 28px;
+  padding: 7px;
+  border-radius: 6px;
+  background-color: var(--primary-color-black);
 }
