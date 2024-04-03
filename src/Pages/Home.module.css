@@ -1,0 +1,67 @@
+.container {
+  height: calc(100vh - 60px);
+  width: 100%;
+  padding: 14px 20px;
+
+  @media screen and (min-width: 375px) {
+    min-width: var(--container-mobile);
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: var(--container-tablet);
+    padding: 20px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    min-width: var(--container-desktop);
+    /* width: 1155px; */
+    padding: 14px 24px;
+
+    /*   --container-desktop: 1376px; */
+  }
+}
+
+.projectNav {
+  display: flex;
+  align-items: center;
+}
+
+.projectName {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.defaultBoard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.emptyBoardText {
+  max-width: 486px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(22, 22, 22, 0.7);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+
+.boardCreation {
+  color: var(--primary-color-green-hover);
+}

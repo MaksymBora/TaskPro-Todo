@@ -1,0 +1,25 @@
+.filterButton {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.8);
+
+  cursor: pointer;
+  transition:
+    color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    fill 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    color: var(--primary-color-green-hover);
+  }
+
+  &:hover svg {
+    fill: var(--primary-color-green-hover);
+  }
+}
