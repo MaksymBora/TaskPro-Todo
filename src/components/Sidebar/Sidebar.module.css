@@ -44,6 +44,10 @@
 
   @media screen and (min-width: 1440px) {
     transform: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 }
 
