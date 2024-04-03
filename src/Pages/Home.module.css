@@ -13,17 +13,19 @@
   }
 
   @media screen and (min-width: 1440px) {
-    min-width: var(--container-desktop);
-    /* width: 1155px; */
+    width: calc(100% - var(--sidebar-desktop-width));
+    display: flex;
+    align-items: self-start;
+    justify-content: end;
     padding: 14px 24px;
-
-    /*   --container-desktop: 1376px; */
+    margin-left: auto;
   }
 }
 
 .projectNav {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .projectName {

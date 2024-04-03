@@ -27,9 +27,7 @@
 
   @media screen and (min-width: 1440px) {
     justify-content: flex-end;
-    /* min-width: var(--container-desktop); */
-    /* width: 1180px; */
-    width: calc(100% - 260px);
+    width: calc(100% - var(--sidebar-desktop-width));
   }
 }
 

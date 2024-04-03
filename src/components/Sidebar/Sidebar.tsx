@@ -33,19 +33,21 @@ const {
 } = css;
 
 interface SidebarPropTypes {
-  sidebarIsOpen: boolean;
-  setSidebarIsOpen: (value: boolean) => void;
+  sidebarIsOpen?: boolean;
+  setSidebarIsOpen?: (value: boolean) => void;
 }
 
 export const Sidebar: FC<SidebarPropTypes> = ({
-  sidebarIsOpen,
+  sidebarIsOpen = false,
   setSidebarIsOpen,
 }) => {
   const handleCloseSidebar = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
     if (e.target === e.currentTarget) {
-      setSidebarIsOpen(false);
+      if (setSidebarIsOpen !== undefined) {
+        setSidebarIsOpen(false);
+      }
     }
   };
 
@@ -156,4 +158,9 @@ export const Sidebar: FC<SidebarPropTypes> = ({
       </div>
     </div>
   );
+};
+
+Sidebar.defaultProps = {
+  sidebarIsOpen: false,
+  setSidebarIsOpen: undefined,
 };

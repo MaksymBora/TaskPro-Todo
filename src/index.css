@@ -11,6 +11,8 @@
 
   --primary-color-boxshadow: 0px 0px 7px 0px rgba(178, 237, 195, 0.61);
 
+  --sidebar-desktop-width: 260px;
+
   --container-mobile: 335px;
   --container-tablet: 704px;
   --container-desktop: 1376px;
