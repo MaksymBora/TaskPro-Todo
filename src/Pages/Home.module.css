@@ -111,3 +111,22 @@
   border-radius: 6px;
   background-color: var(--primary-color-black);
 }
+
+/* Todo List  */
+
+.columnTitle {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  background-color: var(--primary-color-white);
+
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+}

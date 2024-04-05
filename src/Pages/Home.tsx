@@ -12,6 +12,24 @@ function Home() {
 
       <div>
         <ul className={css.columnsList}>
+          <li>
+            <div className={css.columnTitle}>
+              <h2>To Do</h2>
+              <div>
+                <button type="button">Edit</button>
+                <button type="button">Delete</button>
+              </div>
+            </div>
+            <ul>
+              <li>
+                <div>
+                  <h4>Order items</h4>
+                  <p>Get order as per list</p>
+                </div>
+              </li>
+            </ul>
+            <button type="button">+ Add card</button>
+          </li>
           <button type="button" className={css.createColumnBtn}>
             <Icon
               name="icon-plus"
