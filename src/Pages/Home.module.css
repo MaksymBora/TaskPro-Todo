@@ -114,6 +114,37 @@
 
 /* Todo List  */
 
+/* .todoColumnsWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+} */
+
+.columnsList {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 18px;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    background-color: var(--primary-color-white);
+    border-radius: 12px;
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color-scrollThumb-bg);
+    border: none;
+    border-radius: 12px;
+    width: 12px;
+  }
+}
+
+.coulmnsItem {
+  width: 335px;
+}
+
 .columnTitle {
   width: 100%;
   height: 56px;
@@ -156,11 +187,29 @@
 }
 
 .todoCard {
-  width: 100%;
+  position: relative;
+  /* width: 100%; */
+  min-width: 335px;
   height: 154px;
   padding: 14px 20px;
   border-radius: 8px;
   background-color: var(--primary-color-white);
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: var(--priority-color-low);
+  }
 }
 
 /* Border Color */
@@ -215,7 +264,7 @@
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: #8fa1d0;
+  background-color: var(--priority-color-low);
 }
 
 .priorityType {
@@ -275,7 +324,7 @@
   width: 100%;
   height: 56px;
   padding: 14px 0;
-  margin: 0 auto;
+  margin: 0 auto 24px auto;
   border: none;
   border-radius: 8px;
   background: var(--primary-color-green);

@@ -10,9 +10,9 @@ function Home() {
         <Filter />
       </div>
 
-      <div>
+      <div className={css.todoColumnsWrapper}>
         <ul className={css.columnsList}>
-          <li>
+          <li className={css.coulmnsItem}>
             <div className={css.columnTitle}>
               <h2>To Do</h2>
               <div className={css.columnBtnsControlWrapper}>
@@ -38,7 +38,65 @@ function Home() {
             </div>
 
             <ul className={css.todoCardsList}>
-              <li className={`${css.todoCard} `}>
+              <li className={`${css.todoCard}`}>
+                <div className={css.cardContentWrapper}>
+                  <h4 className={css.todoTitle}>Order items</h4>
+                  <p className={css.todoScope}>Get order as per list</p>
+                </div>
+
+                <div className={css.todoInfoWrapper}>
+                  <div className={css.priority}>
+                    <h5 className={css.priorityTitle}>Priority</h5>
+                    <div className={css.priorityWrapper}>
+                      <div className={css.priorityColor} />
+                      <p className={css.priorityType}>Low</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className={css.deadlineTitle}>Deadline</h5>
+                    <p className={css.deadlineDate}>05/05/2024</p>
+                  </div>
+
+                  <ul className={css.todosButtonsList}>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-arrow-circle"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-pencil"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-trash"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li className={`${css.todoCard}`}>
                 <div className={css.cardContentWrapper}>
                   <h4 className={css.todoTitle}>Order items</h4>
                   <p className={css.todoScope}>Get order as per list</p>
@@ -96,6 +154,162 @@ function Home() {
                 </div>
               </li>
             </ul>
+
+            <button type="button" className={css.addCardBtn}>
+              <Icon
+                name="icon-plus"
+                width="14px"
+                height="14px"
+                fill="#ffffff"
+                className={css.addColumnIcon}
+              />{' '}
+              Add another card
+            </button>
+          </li>
+
+          <li className={css.coulmnsItem}>
+            <div className={css.columnTitle}>
+              <h2>To Test 2</h2>
+              <div className={css.columnBtnsControlWrapper}>
+                <button type="button" className={css.columnBtnsControl}>
+                  <Icon
+                    name="icon-pencil"
+                    width="16px"
+                    height="16px"
+                    fill="gray"
+                    className={css.hoverOnIcon}
+                  />
+                </button>
+                <button type="button" className={css.columnBtnsControl}>
+                  <Icon
+                    name="icon-trash"
+                    width="16px"
+                    height="16px"
+                    fill="gray"
+                    className={css.hoverOnIcon}
+                  />
+                </button>
+              </div>
+            </div>
+
+            <ul className={css.todoCardsList}>
+              <li className={`${css.todoCard}`}>
+                <div className={css.cardContentWrapper}>
+                  <h4 className={css.todoTitle}>Order items</h4>
+                  <p className={css.todoScope}>Get order as per list</p>
+                </div>
+
+                <div className={css.todoInfoWrapper}>
+                  <div className={css.priority}>
+                    <h5 className={css.priorityTitle}>Priority</h5>
+                    <div className={css.priorityWrapper}>
+                      <div className={css.priorityColor} />
+                      <p className={css.priorityType}>Low</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className={css.deadlineTitle}>Deadline</h5>
+                    <p className={css.deadlineDate}>05/05/2024</p>
+                  </div>
+
+                  <ul className={css.todosButtonsList}>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-arrow-circle"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-pencil"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-trash"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li className={`${css.todoCard}`}>
+                <div className={css.cardContentWrapper}>
+                  <h4 className={css.todoTitle}>Order items</h4>
+                  <p className={css.todoScope}>Get order as per list</p>
+                </div>
+
+                <div className={css.todoInfoWrapper}>
+                  <div className={css.priority}>
+                    <h5 className={css.priorityTitle}>Priority</h5>
+                    <div className={css.priorityWrapper}>
+                      <div className={css.priorityColor} />
+                      <p className={css.priorityType}>Low</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className={css.deadlineTitle}>Deadline</h5>
+                    <p className={css.deadlineDate}>05/05/2024</p>
+                  </div>
+
+                  <ul className={css.todosButtonsList}>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-arrow-circle"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-pencil"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                    <li className={css.todosButtonItem}>
+                      <button type="button" className={css.todoActionBtn}>
+                        <Icon
+                          name="icon-trash"
+                          width="16px"
+                          height="16px"
+                          fill="gray"
+                          className={css.hoverOnIcon}
+                        />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+
             <button type="button" className={css.addCardBtn}>
               <Icon
                 name="icon-plus"
