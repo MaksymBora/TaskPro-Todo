@@ -12,9 +12,10 @@ function Home() {
 
       <div className={css.todoColumnsWrapper}>
         <ul className={css.columnsList}>
+          {/* COLUMN 1 */}
           <li className={css.coulmnsItem}>
-            <div className={css.columnTitle}>
-              <h2>To Do</h2>
+            <div className={css.columnTitleWrapper}>
+              <h2 className={css.columnTitle}>To Do</h2>
               <div className={css.columnBtnsControlWrapper}>
                 <button type="button" className={css.columnBtnsControl}>
                   <Icon
@@ -226,9 +227,10 @@ function Home() {
             </button>
           </li>
 
+          {/* COLUMN 2 */}
           <li className={css.coulmnsItem}>
-            <div className={css.columnTitle}>
-              <h2>To Test 2</h2>
+            <div className={css.columnTitleWrapper}>
+              <h2 className={css.columnTitle}>In Progress</h2>
               <div className={css.columnBtnsControlWrapper}>
                 <button type="button" className={css.columnBtnsControl}>
                   <Icon
