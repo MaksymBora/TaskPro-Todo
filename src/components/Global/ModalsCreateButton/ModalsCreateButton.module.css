@@ -1,0 +1,7 @@
+.addIcon {
+  width: 28px;
+  height: 28px;
+  padding: 7px;
+  border-radius: 6px;
+  background-color: var(--primary-color-black);
+}
