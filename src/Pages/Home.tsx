@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import Filter from '@/components/Filter/Filter';
 import css from './Home.module.css';
 import Icon from '@/components/utils/Icon';
 import { NewBoardModal } from '@/components/Modals/NewBoardModal/NewBoradModal';
-import { useState } from 'react';
 
 function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(true);
