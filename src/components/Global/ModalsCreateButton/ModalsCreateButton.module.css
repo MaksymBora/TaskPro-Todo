@@ -1,4 +1,39 @@
-.addIcon {
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 287px;
+  height: 49px;
+  padding: 10px 0 11px 0;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+  background-color: var(--primary-color-green);
+
+  transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-color-green-hover);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 302px;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 28px;
   height: 28px;
   padding: 7px;

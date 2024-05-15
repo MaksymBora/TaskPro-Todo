@@ -8,14 +8,10 @@ interface ModalsCreateButtonProps {
 
 export const ModalsCreateButton: FC<ModalsCreateButtonProps> = ({ name }) => {
   return (
-    <button type="submit">
-      <Icon
-        name="icon-plus"
-        width="14px"
-        height="14px"
-        fill="#ffffff"
-        className={css.addIcon}
-      />{' '}
+    <button className={css.btn} type="submit">
+      <div className={css.iconWrapper}>
+        <Icon name="icon-plus" width="14px" height="14px" fill="#ffffff" />
+      </div>
       {name}
     </button>
   );

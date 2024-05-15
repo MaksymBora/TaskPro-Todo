@@ -23,16 +23,6 @@ const iconsArray = [
 ];
 
 const customStyles = {
-  content: {
-    padding: '24px',
-    border: 'none',
-    width: '335px',
-    height: '433px',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#fcfcfc',
-  },
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
@@ -63,7 +53,8 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="New Board Modal"
+        className={css.Modal}
       >
         <button
           type="button"
@@ -72,6 +63,7 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
         >
           <Icon name="icon-x-close" width="18px" height="18px" fill="#161616" />
         </button>
+
         <Formik
           initialValues={{ boardTitle: '' }}
           validationSchema={TitleSchema}
@@ -79,7 +71,7 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
         >
           <Form autoComplete="off">
             <h4 className={css.title}>New Board</h4>
-            {/* <label htmlFor="boardTitle">Title</label> */}
+
             <Field
               className={css.inputField}
               placeholder="Title"
