@@ -67,3 +67,8 @@
   font-size: 12px;
   color: red;
 }
+
+.iconList {
+  display: flex;
+  gap: 8px;
+}

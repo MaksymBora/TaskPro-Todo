@@ -8,6 +8,8 @@ import { ModalsCreateButton } from '@/components/Global/ModalsCreateButton/Modal
 
 Modal.setAppElement('#modal-root');
 
+const iconsArray = ['icon-star-04-1', 'icon-pencil'];
+
 const customStyles = {
   content: {
     padding: '24px',
@@ -80,6 +82,21 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
             </span>
             <p className={css.subtitle}>Icons</p>
 
+            <ul className={css.iconList}>
+              {iconsArray.map(icon => (
+                <li key={icon}>
+                  <label htmlFor={icon}>
+                    <Field id={icon} type="radio" name="icon" value={icon} />
+                  </label>
+                  <Icon
+                    name="icon-x-close"
+                    width="18px"
+                    height="18px"
+                    fill="#161616"
+                  />
+                </li>
+              ))}
+            </ul>
             <p className={css.subtitle}>Background</p>
 
             <ModalsCreateButton name="Create" />
