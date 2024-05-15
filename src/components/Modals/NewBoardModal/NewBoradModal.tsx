@@ -5,6 +5,9 @@ import { FC } from 'react';
 import css from './NewBoardModal.module.css';
 import Icon from '@/components/utils/Icon';
 import { ModalsCreateButton } from '@/components/Global/ModalsCreateButton/ModalsCreateButton';
+// import block from '../../../assets/images/modal/block.png';
+
+import { images } from '@/assets/images/modal/allImages';
 
 Modal.setAppElement('#modal-root');
 
@@ -113,6 +116,25 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
               ))}
             </ul>
             <p className={css.subtitle}>Background</p>
+
+            <ul className={css.imagesList}>
+              {Object.values(images).map(image => (
+                <li key={image}>
+                  <label htmlFor={image} className={css.imagesLabel}>
+                    <Field
+                      className={css.radioIcon}
+                      id={image}
+                      type="radio"
+                      name="bgImage"
+                      value={image}
+                    />
+                    <div className={css.imageWrapper}>
+                      <img src={image} alt="bg img" />
+                    </div>
+                  </label>
+                </li>
+              ))}
+            </ul>
 
             <ModalsCreateButton name="Create" />
           </Form>

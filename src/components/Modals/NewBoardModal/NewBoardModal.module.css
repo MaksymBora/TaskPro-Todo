@@ -36,10 +36,8 @@
   padding: 14px 18px;
   border: 1px solid var(--primary-color-green);
   border-radius: 8px;
-  color: rgba(22, 22, 22, 0.4);
   background-color: var(--primary-color-headerBg);
   outline: none;
-  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
 
   font-weight: 400;
   font-size: 14px;
@@ -48,6 +46,12 @@
 
   &::placeholder {
     color: rgba(22, 22, 22, 0.4);
+  }
+
+  &:focus,
+  &:hover {
+    color: var(--primary-color-black);
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   }
 }
 
@@ -118,4 +122,32 @@
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+.imagesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 252px;
+  height: 60px;
+  margin-bottom: 40px;
+}
+
+.imagesLabel {
+  & input:checked + div {
+    border: 2px solid var(--primary-color-green-hover);
+  }
+}
+
+.imageWrapper {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 }
