@@ -72,3 +72,50 @@
   display: flex;
   gap: 8px;
 }
+
+.iconLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  width: 18px;
+  height: 18px;
+
+  cursor: pointer;
+
+  > svg {
+    opacity: 0.5;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  & input:checked + svg {
+    fill: var(--primary-color-green-hover);
+    opacity: 1;
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.radioIcon {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}

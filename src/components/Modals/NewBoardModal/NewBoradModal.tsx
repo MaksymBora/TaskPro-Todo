@@ -8,7 +8,16 @@ import { ModalsCreateButton } from '@/components/Global/ModalsCreateButton/Modal
 
 Modal.setAppElement('#modal-root');
 
-const iconsArray = ['icon-star-04-1', 'icon-pencil'];
+const iconsArray = [
+  'icon-four-circles',
+  'icon-star',
+  'icon-loading',
+  'icon-puzzle-piece',
+  'icon-container',
+  'icon-lightning',
+  'icon-colors',
+  'icon-hexagon',
+];
 
 const customStyles = {
   content: {
@@ -85,15 +94,21 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
             <ul className={css.iconList}>
               {iconsArray.map(icon => (
                 <li key={icon}>
-                  <label htmlFor={icon}>
-                    <Field id={icon} type="radio" name="icon" value={icon} />
+                  <label htmlFor={icon} className={css.iconLabel}>
+                    <Field
+                      className={css.radioIcon}
+                      id={icon}
+                      type="radio"
+                      name="icon"
+                      value={icon}
+                    />
+                    <Icon
+                      name={icon}
+                      width="18px"
+                      height="18px"
+                      fill="#161616"
+                    />
                   </label>
-                  <Icon
-                    name="icon-x-close"
-                    width="18px"
-                    height="18px"
-                    fill="#161616"
-                  />
                 </li>
               ))}
             </ul>
