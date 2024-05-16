@@ -5,8 +5,6 @@ import { FC } from 'react';
 import css from './NewBoardModal.module.css';
 import Icon from '@/components/utils/Icon';
 import { ModalsCreateButton } from '@/components/Global/ModalsCreateButton/ModalsCreateButton';
-// import block from '../../../assets/images/modal/block.png';
-
 import { images } from '@/assets/images/modal/allImages';
 
 Modal.setAppElement('#modal-root');
