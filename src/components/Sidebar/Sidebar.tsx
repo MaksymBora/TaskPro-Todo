@@ -7,6 +7,7 @@ import flowersImg1x from '../../assets/images/help@x1.png';
 import flowersImg2x from '../../assets/images/help@x2.png';
 import flowersImg3x from '../../assets/images/help@x3.png';
 import { NewBoardModal } from '../Modals/NewBoardModal/NewBoradModal';
+import { HelpModal } from '../Modals/HelpModal/HelpModal';
 
 const {
   sidebarContainer,
@@ -171,6 +172,8 @@ export const Sidebar: FC<SidebarPropTypes> = ({
         handleCloseModal={() => setModalIsOpen(false)}
         setModalIsOpen={setModalIsOpen}
       />
+
+      <HelpModal />
     </div>
   );
 };
