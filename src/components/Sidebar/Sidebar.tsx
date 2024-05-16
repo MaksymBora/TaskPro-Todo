@@ -34,8 +34,8 @@ const {
 } = css;
 
 interface SidebarPropTypes {
-  sidebarIsOpen?: boolean;
-  setSidebarIsOpen?: (value: boolean) => void;
+  sidebarIsOpen: boolean;
+  setSidebarIsOpen: (value: boolean) => void;
 }
 
 export const Sidebar: FC<SidebarPropTypes> = ({
@@ -48,9 +48,7 @@ export const Sidebar: FC<SidebarPropTypes> = ({
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
     if (e.target === e.currentTarget) {
-      if (setSidebarIsOpen !== undefined) {
-        setSidebarIsOpen(false);
-      }
+      setSidebarIsOpen(false);
     }
   };
 
@@ -72,7 +70,10 @@ export const Sidebar: FC<SidebarPropTypes> = ({
           <button
             type="button"
             className={createBoardButton}
-            onClick={() => setModalIsOpen(prevState => !prevState)}
+            onClick={() => {
+              setModalIsOpen(prevState => !prevState);
+              if (sidebarIsOpen) setSidebarIsOpen(false);
+            }}
           >
             +
           </button>
@@ -172,9 +173,4 @@ export const Sidebar: FC<SidebarPropTypes> = ({
       />
     </div>
   );
-};
-
-Sidebar.defaultProps = {
-  sidebarIsOpen: false,
-  setSidebarIsOpen: undefined,
 };
