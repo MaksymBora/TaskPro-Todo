@@ -1,12 +1,8 @@
-import { useState } from 'react';
 import Filter from '@/components/Filter/Filter';
 import css from './Home.module.css';
 import Icon from '@/components/utils/Icon';
-import { NewBoardModal } from '@/components/Modals/NewBoardModal/NewBoradModal';
 
 function Home() {
-  const [modalIsOpen, setModalIsOpen] = useState(true);
-
   return (
     <div className={css.container}>
       <div className={css.projectNav}>
@@ -513,10 +509,10 @@ function Home() {
         </ul>
       </div>
 
-      <NewBoardModal
+      {/* <NewBoardModal
         modalIsOpen={modalIsOpen}
         handleCloseModal={() => setModalIsOpen(false)}
-      />
+      /> */}
 
       {/* <div className={css.defaultBoard}>
         <p className={css.emptyBoardText}>

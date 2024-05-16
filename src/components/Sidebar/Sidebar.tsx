@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import css from './Sidebar.module.css';
 import Icon from '../utils/Icon';
 import flowersImg1x from '../../assets/images/help@x1.png';
 import flowersImg2x from '../../assets/images/help@x2.png';
 import flowersImg3x from '../../assets/images/help@x3.png';
+import { NewBoardModal } from '../Modals/NewBoardModal/NewBoradModal';
 
 const {
   sidebarContainer,
@@ -41,6 +42,8 @@ export const Sidebar: FC<SidebarPropTypes> = ({
   sidebarIsOpen = false,
   setSidebarIsOpen,
 }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const handleCloseSidebar = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
@@ -66,7 +69,11 @@ export const Sidebar: FC<SidebarPropTypes> = ({
 
         <section className={createBoardWrapper}>
           <h3 className={createBoardTitle}>Create a new board</h3>
-          <button type="button" className={createBoardButton}>
+          <button
+            type="button"
+            className={createBoardButton}
+            onClick={() => setModalIsOpen(prevState => !prevState)}
+          >
             +
           </button>
         </section>
@@ -156,6 +163,13 @@ export const Sidebar: FC<SidebarPropTypes> = ({
           Log out
         </button>
       </div>
+
+      {/* New Board Modal */}
+      <NewBoardModal
+        modalIsOpen={modalIsOpen}
+        handleCloseModal={() => setModalIsOpen(false)}
+        setModalIsOpen={setModalIsOpen}
+      />
     </div>
   );
 };

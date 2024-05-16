@@ -35,16 +35,19 @@ const TitleSchema = Yup.object().shape({
 interface ModalPropTypes {
   modalIsOpen: boolean;
   handleCloseModal: () => void;
+  setModalIsOpen: (isOpen: boolean) => void;
 }
 
 export const NewBoardModal: FC<ModalPropTypes> = ({
   modalIsOpen,
   handleCloseModal,
+  setModalIsOpen,
 }) => {
   const handleSubmit = (values, actions) => {
     console.log('test submit form', values);
 
     actions.resetForm();
+    setModalIsOpen(false);
   };
 
   return (
