@@ -44,6 +44,7 @@ export const Sidebar: FC<SidebarPropTypes> = ({
   setSidebarIsOpen,
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [helpModalIsOpen, setHelpModalIsOpen] = useState(false);
 
   const handleCloseSidebar = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -154,7 +155,14 @@ export const Sidebar: FC<SidebarPropTypes> = ({
             support team.
           </p>
 
-          <button className={helpButton} type="button">
+          <button
+            className={helpButton}
+            type="button"
+            onClick={() => {
+              setHelpModalIsOpen(prevState => !prevState);
+              if (sidebarIsOpen) setSidebarIsOpen(false);
+            }}
+          >
             <Icon name="icon-help-circle" width="20px" height="20px" />
             Need help ?
           </button>
@@ -173,7 +181,10 @@ export const Sidebar: FC<SidebarPropTypes> = ({
         setModalIsOpen={setModalIsOpen}
       />
 
-      <HelpModal />
+      <HelpModal
+        modalIsOpen={helpModalIsOpen}
+        setModalIsOpen={setHelpModalIsOpen}
+      />
     </div>
   );
 };
