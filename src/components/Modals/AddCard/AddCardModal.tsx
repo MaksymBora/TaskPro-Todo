@@ -113,7 +113,7 @@ export const AddCardModal: FC<ModalPropTypes> = ({
                 }}
               />
 
-              {/* <p className={css.deadlineStyle}>Deadline</p>
+              <p className={css.deadlineStyle}>Deadline</p>
               <div>
                 <span className={css.subTitle}> Today,</span>
                 <Calendar
@@ -123,7 +123,7 @@ export const AddCardModal: FC<ModalPropTypes> = ({
                     setFieldValue('deadline', date);
                   }}
                 />
-              </div> */}
+              </div>
 
               <ModalsCreateButton name="Add" />
             </Form>

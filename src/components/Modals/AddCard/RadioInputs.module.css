@@ -1,34 +1,46 @@
-.StyledRadioGroup {
+.styledRadioGroup {
   height: 18px;
   display: flex;
   gap: 8px;
   margin-bottom: 10px;
 }
 
-.RadioLabel {
+.radioLabel {
   border-radius: 50%;
   width: 15px;
   height: 14px;
-  transition: var(--transition);
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   box-sizing: border-box;
   position: relative;
 
-  &.checked {
+  /* &:checked {
     &::after {
       content: '';
       position: absolute;
-      width: 12px;
+      width: 122px;
       height: 12px;
       top: 50%;
       left: 51%;
       transform: translate(-47%, -50%);
       border-radius: 50%;
-      border: 2px solid var(--extraBgColor);
+      border: 2px solid green;
     }
-  }
+  } */
 }
 
-.RadioButton {
+.radioLabel.checked::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 49%;
+  transform: translate(-47%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgb(156, 255, 156);
+}
+
+.radioButton {
   display: none;
 }

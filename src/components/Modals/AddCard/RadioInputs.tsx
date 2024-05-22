@@ -38,7 +38,7 @@ export const RadioInputs: FC<RadioInputsPropTypes> = ({
 
   return (
     <div
-      className={css.StyledRadioGroup}
+      className={css.styledRadioGroup}
       role="group"
       aria-labelledby="my-radio-group"
     >
@@ -46,8 +46,8 @@ export const RadioInputs: FC<RadioInputsPropTypes> = ({
         <label
           htmlFor={item}
           key={nanoid()}
-          className={`${css.RadioLabel} ${
-            css.currValue === item ? 'checked' : ''
+          className={`${css.radioLabel} ${
+            currValue === item ? css.checked : ''
           }`}
           style={{ backgroundColor: getPriorityColor(item) }}
         >
@@ -58,7 +58,7 @@ export const RadioInputs: FC<RadioInputsPropTypes> = ({
             value={item}
             checked={currValue === item}
             onChange={handleInput}
-            className={css.RadioButton}
+            className={css.radioButton}
           />
         </label>
       ))}
