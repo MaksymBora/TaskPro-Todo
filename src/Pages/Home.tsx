@@ -5,7 +5,7 @@ import Icon from '@/components/utils/Icon';
 import { AddCardModal } from '@/components/Modals/AddCard/AddCardModal';
 
 function Home() {
-  const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState(false);
+  const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState<boolean>(false);
 
   return (
     <div className={css.container}>
@@ -530,6 +530,7 @@ function Home() {
           effective collaboration among team members.
         </p>
       </div> */}
+
       <AddCardModal
         modalIsOpen={modalAddCardIsOpen}
         setModalIsOpen={setModalAddCardIsOpen}

@@ -1,27 +1,29 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import { Field } from 'formik';
 import css from './RadioInputs.module.css';
 
 interface RadioInputsPropTypes {
-  defaultValue: string;
-
-  onPriorityChange: (isOpen: boolean) => void;
+  defaultValue: PriorityType;
+  onPriorityChange: (priority: PriorityType) => void;
 }
+
+type PriorityType = 'low' | 'medium' | 'high' | 'without';
 
 export const RadioInputs: FC<RadioInputsPropTypes> = ({
   defaultValue,
   onPriorityChange,
 }) => {
-  const list = ['low', 'medium', 'high', 'without'];
-  const [currValue, setCurrValue] = useState(defaultValue);
+  const list: PriorityType[] = ['low', 'medium', 'high', 'without'];
+  const [currValue, setCurrValue] = useState<PriorityType>(defaultValue);
 
-  const handleInput = ({ target: { value } }) => {
-    onPriorityChange(value);
-    setCurrValue(value);
+  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    onPriorityChange(value as PriorityType);
+    setCurrValue(value as PriorityType);
   };
 
-  const getPriorityColor = (priority: string) => {
+  const getPriorityColor = (priority: PriorityType): string => {
     switch (priority) {
       case 'low':
         return '#8fa1d0';

@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
 import Modal from 'react-modal';
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Formik, Form, ErrorMessage, Field, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import css from './AddCardModal.module.css';
 import Icon from '@/components/utils/Icon';
 import { ModalsCreateButton } from '@/components/Global/ModalsCreateButton/ModalsCreateButton';
-import { RadioInputs } from './RadioInputs';
-import { Calendar } from './Calendar';
+import { RadioInputs } from './RadioInputs/RadioInputs';
+import { Calendar } from './Calendar/Calendar';
 
 Modal.setAppElement('#help-modal-root');
 
@@ -16,7 +16,7 @@ const customStyles = {
   },
 };
 
-const HelpBoardSchema = Yup.object().shape({
+const AddCardSchema = Yup.object().shape({
   title: Yup.string()
     .min(3, `It's can be up to 3 characters long`)
     .max(100, 'Too Long!')
@@ -29,8 +29,14 @@ const HelpBoardSchema = Yup.object().shape({
 
 interface ModalPropTypes {
   modalIsOpen: boolean;
-
   setModalIsOpen: (isOpen: boolean) => void;
+}
+
+interface FormValues {
+  title: string;
+  description: string;
+  priority: string;
+  deadline: Date;
 }
 
 export const AddCardModal: FC<ModalPropTypes> = ({
@@ -43,7 +49,7 @@ export const AddCardModal: FC<ModalPropTypes> = ({
     setModalIsOpen(false);
   };
 
-  const onSubmit = (values, actions) => {
+  const onSubmit = (values: FormValues, actions: FormikHelpers<FormValues>) => {
     console.log('test submit form', values);
 
     actions.resetForm();
@@ -74,7 +80,7 @@ export const AddCardModal: FC<ModalPropTypes> = ({
             priority: 'without',
             deadline: selectedDate,
           }}
-          validationSchema={HelpBoardSchema}
+          validationSchema={AddCardSchema}
           onSubmit={onSubmit}
         >
           {({ handleSubmit, setFieldValue }) => (
@@ -94,13 +100,6 @@ export const AddCardModal: FC<ModalPropTypes> = ({
                 <ErrorMessage name="title" />
               </span>
 
-              {/* <Field
-                className={css.textareaComments}
-                as="textarea"
-                id="description"
-                name="description"
-                placeholder="Description"
-              /> */}
               <Field
                 className={css.textareaComments}
                 component="textarea"

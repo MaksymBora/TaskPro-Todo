@@ -13,7 +13,7 @@ export const Calendar: FC<CalendarPropTypes> = ({
   selectedDate,
   onDateChange,
 }) => {
-  const handleDateChange = date => {
+  const handleDateChange = (date: Date) => {
     onDateChange(date);
   };
 
