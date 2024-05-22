@@ -1,15 +1,18 @@
+import { useState } from 'react';
 import Filter from '@/components/Filter/Filter';
 import css from './Home.module.css';
 import Icon from '@/components/utils/Icon';
+import { AddCardModal } from '@/components/Modals/AddCard/AddCardModal';
 
 function Home() {
+  const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState(false);
+
   return (
     <div className={css.container}>
       <div className={css.projectNav}>
         <p className={css.projectName}>Project office</p>
         <Filter />
       </div>
-
       <div className={css.todoColumnsWrapper}>
         <ul className={css.columnsList}>
           {/* COLUMN 1 */}
@@ -42,7 +45,7 @@ function Home() {
             <ul className={css.todoCardsList}>
               <li className={`${css.todoCard}`}>
                 <div className={css.cardContentWrapper}>
-                  <h4 className={css.todoTitle}>Order items</h4>
+                  <h4 className={css.todoTitle}>Order items1</h4>
                   <p className={css.todoScope}>Get order as per list</p>
                 </div>
 
@@ -100,7 +103,7 @@ function Home() {
 
               <li className={`${css.todoCard}`}>
                 <div className={css.cardContentWrapper}>
-                  <h4 className={css.todoTitle}>Order items</h4>
+                  <h4 className={css.todoTitle}>Order items2</h4>
                   <p className={css.todoScope}>Get order as per list</p>
                 </div>
 
@@ -158,7 +161,7 @@ function Home() {
 
               <li className={`${css.todoCard}`}>
                 <div className={css.cardContentWrapper}>
-                  <h4 className={css.todoTitle}>Order items</h4>
+                  <h4 className={css.todoTitle}>Order items3</h4>
                   <p className={css.todoScope}>Get order as per list</p>
                 </div>
 
@@ -215,7 +218,13 @@ function Home() {
               </li>
             </ul>
 
-            <button type="button" className={css.addCardBtn}>
+            <button
+              type="button"
+              className={css.addCardBtn}
+              onClick={() => {
+                setModalAddCardIsOpen(prevState => !prevState);
+              }}
+            >
               <Icon
                 name="icon-plus"
                 width="14px"
@@ -508,12 +517,10 @@ function Home() {
           </button>
         </ul>
       </div>
-
       {/* <NewBoardModal
         modalIsOpen={modalIsOpen}
         handleCloseModal={() => setModalIsOpen(false)}
       /> */}
-
       {/* <div className={css.defaultBoard}>
         <p className={css.emptyBoardText}>
           Before starting your project, it is essential
@@ -523,6 +530,10 @@ function Home() {
           effective collaboration among team members.
         </p>
       </div> */}
+      <AddCardModal
+        modalIsOpen={modalAddCardIsOpen}
+        setModalIsOpen={setModalAddCardIsOpen}
+      />
     </div>
   );
 }
