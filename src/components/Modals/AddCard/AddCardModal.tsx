@@ -70,7 +70,7 @@ export const AddCardModal: FC<ModalPropTypes> = ({
         <Formik
           initialValues={{
             title: '',
-            text: '',
+            description: '',
             priority: 'without',
             deadline: selectedDate,
           }}
@@ -91,18 +91,25 @@ export const AddCardModal: FC<ModalPropTypes> = ({
                 required
               />
               <span className={css.inputErrorMessage}>
-                <ErrorMessage name="email" />
+                <ErrorMessage name="title" />
               </span>
 
-              <Field
+              {/* <Field
                 className={css.textareaComments}
                 as="textarea"
                 id="description"
                 name="description"
                 placeholder="Description"
+              /> */}
+              <Field
+                className={css.textareaComments}
+                component="textarea"
+                id="description"
+                name="description"
+                placeholder="Description"
               />
               <span className={css.textareaErrorMessage}>
-                <ErrorMessage name="comments" />
+                <ErrorMessage name="description" />
               </span>
 
               <p className={css.colorCardRadio}>Label color</p>
