@@ -24,6 +24,11 @@
   --container-desktop: 1376px;
 
   --padding-container-tablet: 18px 32px;
+
+  --strokeForCalendar: rgba(22, 22, 22, 0.2);
+  --text-calendar: rgba(22, 22, 22, 0.5);
+
+  --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {

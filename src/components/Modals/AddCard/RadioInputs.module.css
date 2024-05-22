@@ -2,7 +2,7 @@
   height: 18px;
   display: flex;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .radioLabel {
@@ -13,20 +13,6 @@
   cursor: pointer;
   box-sizing: border-box;
   position: relative;
-
-  /* &:checked {
-    &::after {
-      content: '';
-      position: absolute;
-      width: 122px;
-      height: 12px;
-      top: 50%;
-      left: 51%;
-      transform: translate(-47%, -50%);
-      border-radius: 50%;
-      border: 2px solid green;
-    }
-  } */
 }
 
 .radioLabel.checked::after {

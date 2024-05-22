@@ -114,8 +114,8 @@ export const AddCardModal: FC<ModalPropTypes> = ({
               />
 
               <p className={css.deadlineStyle}>Deadline</p>
-              <div>
-                <span className={css.subTitle}> Today,</span>
+              <div className={css.calendarContainer}>
+                <span className={css.subTitle}> Today, </span>
                 <Calendar
                   selectedDate={selectedDate}
                   onDateChange={date => {
