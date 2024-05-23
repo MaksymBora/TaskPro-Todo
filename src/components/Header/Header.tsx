@@ -3,9 +3,11 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import Icon from '../utils/Icon';
 import { DropdownMenu } from './ThemeButton';
 import css from './Header.module.css';
+import { EditProfile } from '../Modals/EditProfile/EditProfile';
 
 const Header: FC = () => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState<boolean>(false);
+  const [editProfileIsOpen, setEditProfileIsOpen] = useState<boolean>(false);
 
   return (
     <header className={css.header}>
@@ -34,7 +36,13 @@ const Header: FC = () => {
 
           <p className={css.userName}>Maks</p>
 
-          <button type="button" className={css.avatarButton}>
+          <button
+            type="button"
+            className={css.avatarButton}
+            onClick={() => {
+              setEditProfileIsOpen(prevState => !prevState);
+            }}
+          >
             <Icon
               name="icon-user"
               width="32px"
@@ -42,6 +50,11 @@ const Header: FC = () => {
               style={{ borderRadius: '8px' }}
             />
           </button>
+
+          <EditProfile
+            modalIsOpen={editProfileIsOpen}
+            setModalIsOpen={setEditProfileIsOpen}
+          />
 
           {/* <div className={css.avatar}>
             <Icon
