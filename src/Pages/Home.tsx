@@ -3,9 +3,12 @@ import Filter from '@/components/Filter/Filter';
 import css from './Home.module.css';
 import Icon from '@/components/utils/Icon';
 import { AddCardModal } from '@/components/Modals/AddCard/AddCardModal';
+import { AddColumn } from '@/components/Modals/AddColumn/AddColumn';
 
 function Home() {
   const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState<boolean>(false);
+  const [modalAddColumnIsOpen, setModalAddColumnIsOpen] =
+    useState<boolean>(false);
 
   return (
     <div className={css.container}>
@@ -505,7 +508,13 @@ function Home() {
               Add another card
             </button>
           </li>
-          <button type="button" className={css.createColumnBtn}>
+          <button
+            type="button"
+            className={css.createColumnBtn}
+            onClick={() => {
+              setModalAddColumnIsOpen(prevState => !prevState);
+            }}
+          >
             <Icon
               name="icon-plus"
               width="14px"
@@ -534,6 +543,11 @@ function Home() {
       <AddCardModal
         modalIsOpen={modalAddCardIsOpen}
         setModalIsOpen={setModalAddCardIsOpen}
+      />
+
+      <AddColumn
+        modalIsOpen={modalAddColumnIsOpen}
+        setModalIsOpen={setModalAddColumnIsOpen}
       />
     </div>
   );
