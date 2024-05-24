@@ -1,0 +1,39 @@
+.avatarContainer {
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.selectBtn {
+  position: absolute;
+  top: 56px;
+  left: 46%;
+
+  width: 24px;
+  height: 24px;
+  background: var(--primary-color-green);
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  transition: background-color var(--transition);
+
+  &:hover,
+  &:focus {
+    background: var(--primary-color-green-hover);
+  }
+
+  @media only screen and (min-width: 768px) {
+    left: 47%;
+  }
+}
+
+.fileInput {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}

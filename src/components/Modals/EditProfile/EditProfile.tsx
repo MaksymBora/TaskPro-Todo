@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FC, useState } from 'react';
 import Modal from 'react-modal';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Icon from '@/components/utils/Icon';
 import css from './EditProfile.module.css';
+import { EditAvatar } from './EditAvatar/EditAvatar';
 
 Modal.setAppElement('#help-modal-root');
 
@@ -32,8 +35,7 @@ const EditProfileSchema = Yup.object().shape({
       /^[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]+$/,
       'only latin letters, numbers and symbols'
     )
-    .matches(/^\S*$/, 'password must not contain spaces')
-    .required('this field is required '),
+    .matches(/^\S*$/, 'password must not contain spaces'),
 });
 
 const initialValues = {
@@ -46,7 +48,8 @@ export const EditProfile: FC<ModalPropTypes> = ({
   modalIsOpen,
   setModalIsOpen,
 }) => {
-  const [schema] = useState(EditProfileSchema);
+  const [schema, setSchema] = useState(EditProfileSchema);
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
   const handleCloseModal = () => {
     setModalIsOpen(false);
@@ -57,6 +60,12 @@ export const EditProfile: FC<ModalPropTypes> = ({
 
     actions.resetForm();
     setModalIsOpen(false);
+  };
+
+  const setCurrentSchema = evt => {
+    if (evt.target.value !== '') {
+      setSchema(EditProfileSchema);
+    }
   };
 
   return (
@@ -78,14 +87,14 @@ export const EditProfile: FC<ModalPropTypes> = ({
           <Icon name="icon-x-close" width="18px" height="18px" fill="#161616" />
         </button>
 
-        <h2>Update Avatar</h2>
+        <EditAvatar />
 
         <Formik
           initialValues={initialValues}
           validationSchema={schema}
           onSubmit={onSubmit}
         >
-          {({ handleSubmit }) => (
+          {({ handleSubmit, setFieldValue }) => (
             <Form onSubmit={handleSubmit} className={css.styledForm}>
               <label htmlFor="name" className={css.styledLabel}>
                 <Field id="name" name="name" className={css.styledInputField} />
@@ -94,12 +103,57 @@ export const EditProfile: FC<ModalPropTypes> = ({
                 </span>
               </label>
 
-              <label htmlFor="email">
-                <Field id="email" name="email" type="email" />
+              <label htmlFor="email" className={css.styledLabel}>
+                <Field
+                  id="email"
+                  name="email"
+                  type="email"
+                  className={css.styledInputField}
+                />
                 <span className={css.inputErrorMessage}>
                   <ErrorMessage name="email" />
                 </span>
               </label>
+
+              {/* Password */}
+              <label htmlFor="password" className={css.styledLabel}>
+                <i
+                  className={css.iconStyledEye}
+                  onClick={() => {
+                    setPasswordShown(!passwordShown);
+                  }}
+                >
+                  <Icon
+                    name="icon-eye"
+                    width="18px"
+                    height="18px"
+                    fill="#161616"
+                    className={`${css.iconEye} ${
+                      passwordShown ? css.passShown : css.passHidden
+                    }
+                    }`}
+                  />
+                </i>
+                <Field
+                  onChange={evt => {
+                    setFieldValue('password', evt.target.value);
+                    setCurrentSchema(evt);
+                  }}
+                  id="password"
+                  name="password"
+                  className={css.styledInputField}
+                  type={passwordShown ? 'text' : 'password'}
+                  placeholder="Enter or update your password"
+                  autoComplete="off"
+                />
+                <span className={css.inputErrorMessage}>
+                  <ErrorMessage name="password" />
+                </span>
+              </label>
+
+              <button type="submit" className={css.btn}>
+                Send
+              </button>
             </Form>
           )}
         </Formik>

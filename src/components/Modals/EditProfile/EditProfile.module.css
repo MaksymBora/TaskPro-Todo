@@ -51,8 +51,8 @@
 
 .inputErrorMessage {
   position: absolute;
-  right: 24px;
-  top: 55px;
+  right: 0px;
+  top: -15px;
   font-size: 12px;
   color: red;
 }
@@ -72,7 +72,7 @@
   width: 100%;
   height: 49px;
   padding: 14px 18px;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   border: 1px solid var(--primary-color-green);
   border-radius: 8px;
   background-color: var(--primary-color-headerBg);
@@ -92,4 +92,56 @@
     color: var(--primary-color-black);
     box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 49px;
+  padding: 10px 0 11px 0;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--primary-color-black);
+  background-color: var(--primary-color-green);
+
+  transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-color-green-hover);
+  }
+}
+
+.iconStyledEye {
+  position: absolute;
+  top: 23%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.iconEye {
+  transition: fill var(--transition);
+
+  &:hover,
+  &:focus {
+    fill: var(--primary-color-green-hover);
+  }
+}
+
+.passShown {
+  fill: var(--primary-color-green-hover);
+}
+
+.passHidden {
+  fill: var(--primary-color-black);
 }
