@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import Filter from '@/components/Filter/Filter';
 import css from './Home.module.css';
 import Icon from '@/components/utils/Icon';
 import { AddCardModal } from '@/components/Modals/AddCard/AddCardModal';
 import { AddColumn } from '@/components/Modals/AddColumn/AddColumn';
 
-function Home() {
+const Home: FC = () => {
   const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState<boolean>(false);
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] =
     useState<boolean>(false);
@@ -526,19 +526,6 @@ function Home() {
           </button>
         </ul>
       </div>
-      {/* <NewBoardModal
-        modalIsOpen={modalIsOpen}
-        handleCloseModal={() => setModalIsOpen(false)}
-      /> */}
-      {/* <div className={css.defaultBoard}>
-        <p className={css.emptyBoardText}>
-          Before starting your project, it is essential
-          <span className={css.boardCreationSpan}> to create a board</span> to
-          visualize and track all the necessary tasks and milestones. This board
-          serves as a powerful tool to organize the workflow and ensure
-          effective collaboration among team members.
-        </p>
-      </div> */}
 
       <AddCardModal
         modalIsOpen={modalAddCardIsOpen}
@@ -551,6 +538,6 @@ function Home() {
       />
     </div>
   );
-}
+};
 
 export default Home;
