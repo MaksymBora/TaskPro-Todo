@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import Modal from 'react-modal';
 import * as Yup from 'yup';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import Icon from '@/components/utils/Icon';
 import css from './EditProfile.module.css';
 import { EditAvatar } from './EditAvatar/EditAvatar';
@@ -19,6 +19,12 @@ const customStyles = {
 interface ModalPropTypes {
   modalIsOpen: boolean;
   setModalIsOpen: (isOpen: boolean) => void;
+}
+
+interface FormValues {
+  name: string;
+  email: string;
+  password: string;
 }
 
 const EditProfileSchema = Yup.object().shape({
@@ -38,7 +44,7 @@ const EditProfileSchema = Yup.object().shape({
     .matches(/^\S*$/, 'password must not contain spaces'),
 });
 
-const initialValues = {
+const initialValues: FormValues = {
   name: 'maksym',
   email: 'maksym@gmail.com',
   password: '',
@@ -55,14 +61,14 @@ export const EditProfile: FC<ModalPropTypes> = ({
     setModalIsOpen(false);
   };
 
-  const onSubmit = (values, actions) => {
+  const onSubmit = (values: FormValues, actions: FormikHelpers<FormValues>) => {
     console.log('test submit form', values);
 
     actions.resetForm();
     setModalIsOpen(false);
   };
 
-  const setCurrentSchema = evt => {
+  const setCurrentSchema = (evt: ChangeEvent<HTMLInputElement>) => {
     if (evt.target.value !== '') {
       setSchema(EditProfileSchema);
     }
