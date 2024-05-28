@@ -105,6 +105,7 @@
   font-family: 'Poppins-medium', sans-serif;
   color: black;
   font-size: 14px;
+  font-weight: 600;
 
   &:hover,
   &:focus,
