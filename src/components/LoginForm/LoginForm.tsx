@@ -4,27 +4,39 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './LoginForm.module.css';
 import Icon from '../utils/Icon';
+import { AppDispatch } from '@/redux/store';
+import { loginUser } from '@/redux/auth/authOperation';
+
+interface FormData {
+  email: string;
+  password: string;
+}
 
 export const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
   const { id } = useParams<string>();
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { isValid },
-  } = useForm({ mode: 'onBlur' });
+  } = useForm<FormData>({ mode: 'onBlur' });
 
-  const onSubmit = data => {
-    const test = {
+  const onSubmit = (data: FormData) => {
+    const credentials = {
       email: data.email,
       password: data.password,
     };
 
-    console.log('Reg Data: >>>', test);
+    dispatch(loginUser(credentials));
+
+    console.log('Reg Data: >>>', credentials);
     reset();
   };
 

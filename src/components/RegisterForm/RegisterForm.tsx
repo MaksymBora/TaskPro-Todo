@@ -4,28 +4,40 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import css from './RegisterForm.module.css';
 import Icon from '../utils/Icon';
+import { registerUser } from '@/redux/auth/authOperation';
+import { AppDispatch } from '@/redux/store';
+
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+}
 
 export const RegisterForm: FC = () => {
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
   const { id } = useParams<string>();
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm({ mode: 'onBlur' });
+  } = useForm<FormData>({ mode: 'onBlur' });
 
-  const onSubmit = data => {
-    const test = {
+  const onSubmit = (data: FormData) => {
+    const credentials = {
       name: data.name,
       email: data.email,
       password: data.password,
     };
 
-    console.log('Reg Data: >>>', test);
+    dispatch(registerUser(credentials));
+
     reset();
   };
 

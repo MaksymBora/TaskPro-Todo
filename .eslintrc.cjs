@@ -73,5 +73,14 @@ module.exports = {
         },
       },
     ],
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'state', // allow reassignment of parameters state in redux
+        ],
+      },
+    ],
   },
 };
