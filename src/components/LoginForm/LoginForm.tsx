@@ -8,8 +8,8 @@ import css from './LoginForm.module.css';
 import Icon from '../utils/Icon';
 
 export const LoginForm = () => {
-  const [passwordShown, setPasswordShown] = useState(false);
-  const { id } = useParams();
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+  const { id } = useParams<string>();
 
   const {
     register,

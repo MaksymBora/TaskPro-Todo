@@ -4,7 +4,7 @@ import { RegisterForm } from '@/components/RegisterForm/RegisterForm';
 import { LoginForm } from '@/components/LoginForm/LoginForm';
 
 const AuthPage: FC = () => {
-  const { id } = useParams();
+  const { id } = useParams<string>();
 
   return <div>{id === 'login' ? <LoginForm /> : <RegisterForm />}</div>;
 };

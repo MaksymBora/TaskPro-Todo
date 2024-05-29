@@ -8,8 +8,8 @@ import css from './RegisterForm.module.css';
 import Icon from '../utils/Icon';
 
 export const RegisterForm: FC = () => {
-  const [passwordShown, setPasswordShown] = useState(false);
-  const { id } = useParams();
+  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+  const { id } = useParams<string>();
 
   const {
     register,
