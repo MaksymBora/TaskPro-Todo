@@ -1,26 +1,23 @@
-.registerContainer {
+.loginWrapper {
   background: linear-gradient(rgba(255, 255, 255, 1) 30%, #bedbb0 92.19%);
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.formRegister {
+.loginForm {
   width: 335px;
+  height: 300px;
+  padding: 20px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: rgba(21, 21, 21, 1);
   border-radius: 8px;
-  gap: 18px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px 24px;
+  gap: 10px;
 
   @media only screen and (max-width: 320px) {
     width: 100%;
@@ -28,25 +25,26 @@
 
   @media only screen and (min-width: 768px) {
     width: 424px;
-    padding: 50px 42px;
+    height: 332px;
+    padding: 40px 38px;
   }
 }
 
-.wrapperRegNav {
+.wrapperLoginNav {
   display: flex;
   align-items: start;
   width: 100%;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-.navLink {
+.styledNavLink {
   font-family: 'Poppins-medium', sans-serif;
-  text-decoration: none;
   color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
-  transition: var(--transition);
   cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
 
   &:hover,
   &:focus,

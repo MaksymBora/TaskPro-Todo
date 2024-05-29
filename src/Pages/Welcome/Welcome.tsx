@@ -36,10 +36,10 @@ const Welcome: FC = () => {
           Pro - Don&apos;t wait, start achieving your goals now!
         </p>
         <div className={css.WrapForNav}>
-          <NavLink className={css.StyledNavLink} to="auth/register">
+          <NavLink className={css.StyledNavLink} to="/auth/register">
             Registration
           </NavLink>
-          <NavLink className={css.StyledNavLink} to="auth/login">
+          <NavLink className={css.StyledNavLink} to="/auth/login">
             Log In
           </NavLink>
         </div>

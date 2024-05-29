@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import css from './RegisterForm.module.css';
@@ -9,6 +9,7 @@ import Icon from '../utils/Icon';
 
 export const RegisterForm: FC = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const { id } = useParams();
 
   const {
     register,
@@ -32,7 +33,10 @@ export const RegisterForm: FC = () => {
     <div className={css.registerContainer}>
       <form className={css.formRegister} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.wrapperRegNav}>
-          <NavLink to="/auth/register" className={css.navLink}>
+          <NavLink
+            to="/auth/register"
+            className={`${css.navLink} ${id === 'register' && css.accent}`}
+          >
             Registration
           </NavLink>
           <NavLink to="/auth/login" className={css.navLink}>
@@ -88,6 +92,7 @@ export const RegisterForm: FC = () => {
         <label className={css.labelStyled}>
           <input
             className={css.regInputStyled}
+            autoComplete="off"
             placeholder="Create a password"
             type={passwordShown ? 'text' : 'password'}
             {...register('password', {

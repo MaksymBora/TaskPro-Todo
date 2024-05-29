@@ -8,7 +8,7 @@ import './fonts.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename="/taskpro-todo">
+    <BrowserRouter basename="/taskpro-todo/">
       <App />
     </BrowserRouter>
   </React.StrictMode>
