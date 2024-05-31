@@ -26,6 +26,12 @@ interface AuthResponse {
   user: { name: string; email: string; token: string };
 }
 
+interface RootState {
+  auth: {
+    token: string;
+  };
+}
+
 export const registerUser = createAsyncThunk(
   'auth/register',
   async (user: User, thunkAPI) => {
@@ -54,6 +60,33 @@ export const loginUser = createAsyncThunk(
       setAuthHeader(res.data.user.token);
 
       return res.data;
+    } catch (error) {
+      if (error instanceof Error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  }
+);
+
+export const refreshing = createAsyncThunk(
+  'auth/refreshing',
+  async (_, thunkAPI) => {
+    const { auth } = thunkAPI.getState() as RootState;
+
+    const { token } = auth;
+
+    if (!token) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(token);
+
+      const response = await axios.get<AuthResponse>('/auth/current');
+
+      return response.data;
     } catch (error) {
       if (error instanceof Error) {
         return thunkAPI.rejectWithValue(error.message);
