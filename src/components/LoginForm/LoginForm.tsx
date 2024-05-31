@@ -101,7 +101,7 @@ export const LoginForm = () => {
         </label>
 
         <button className={css.btnSubmit} type="submit" disabled={!isValid}>
-          Register Now
+          Log In Now
         </button>
       </form>
     </div>

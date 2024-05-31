@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FC, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './Sidebar.module.css';
 import Icon from '../utils/Icon';
 import flowersImg1x from '../../assets/images/help@x1.png';
@@ -8,6 +9,8 @@ import flowersImg2x from '../../assets/images/help@x2.png';
 import flowersImg3x from '../../assets/images/help@x3.png';
 import { NewBoardModal } from '../Modals/NewBoardModal/NewBoradModal';
 import { HelpModal } from '../Modals/HelpModal/HelpModal';
+import { AppDispatch } from '@/redux/store';
+import { logOut } from '@/redux/auth/authOperation';
 
 const {
   sidebarContainer,
@@ -46,12 +49,18 @@ export const Sidebar: FC<SidebarPropTypes> = ({
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [helpModalIsOpen, setHelpModalIsOpen] = useState(false);
 
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleCloseSidebar = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
     if (e.target === e.currentTarget) {
       setSidebarIsOpen(false);
     }
+  };
+
+  const handleLogOut = () => {
+    dispatch(logOut());
   };
 
   return (
@@ -168,7 +177,7 @@ export const Sidebar: FC<SidebarPropTypes> = ({
           </button>
         </section>
 
-        <button className={logoutButton} type="button">
+        <button className={logoutButton} type="button" onClick={handleLogOut}>
           <Icon name="icon-login" width="32px" height="32px" fill="#bedbb0" />
           Log out
         </button>
