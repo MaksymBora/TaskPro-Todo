@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { NavLink, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import css from './LoginForm.module.css';
 import Icon from '../utils/Icon';
@@ -15,7 +15,7 @@ interface FormData {
   password: string;
 }
 
-export const LoginForm = () => {
+export const LoginForm: FC = () => {
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
   const { id } = useParams<string>();
 
@@ -36,7 +36,6 @@ export const LoginForm = () => {
 
     dispatch(loginUser(credentials));
 
-    console.log('Reg Data: >>>', credentials);
     reset();
   };
 
@@ -75,6 +74,7 @@ export const LoginForm = () => {
           <input
             className={css.regInputStyled}
             placeholder="Create a password"
+            autoComplete="off"
             type={passwordShown ? 'text' : 'password'}
             {...register('password', {
               required: 'Required field',

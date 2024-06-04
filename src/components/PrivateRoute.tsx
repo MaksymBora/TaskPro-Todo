@@ -11,9 +11,9 @@ export const PrivateRoute: FC<RestrictedRouteProps> = ({
   redirect,
   component,
 }) => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isRefreshing } = useAuth();
 
-  const shouldRedirect = !isLoggedIn;
+  const shouldRedirect = !isLoggedIn && !isRefreshing;
 
   return <div>{shouldRedirect ? <Navigate to={redirect} /> : component}</div>;
 };

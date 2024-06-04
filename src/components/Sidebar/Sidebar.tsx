@@ -11,6 +11,8 @@ import { NewBoardModal } from '../Modals/NewBoardModal/NewBoradModal';
 import { HelpModal } from '../Modals/HelpModal/HelpModal';
 import { AppDispatch } from '@/redux/store';
 import { logOut } from '@/redux/auth/authOperation';
+import { useBoard } from '@/hooks/useBoard';
+import { BoardItem } from './BoardItem';
 
 const {
   sidebarContainer,
@@ -20,13 +22,7 @@ const {
   createBoardWrapper,
   createBoardTitle,
   createBoardButton,
-  boardName,
-  boardItem,
   boardsList,
-  titleWrapper,
-  iconsWrapper,
-  hoverOnIcon,
-  boardHoverIcon,
   helpSection,
   imgFlowers,
   helpInfo,
@@ -48,6 +44,8 @@ export const Sidebar: FC<SidebarPropTypes> = ({
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [helpModalIsOpen, setHelpModalIsOpen] = useState(false);
+
+  const { boards } = useBoard();
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -91,63 +89,9 @@ export const Sidebar: FC<SidebarPropTypes> = ({
         </section>
 
         <ul className={boardsList}>
-          <li className={boardItem}>
-            <div className={titleWrapper}>
-              <Icon
-                name="icon-four-circles"
-                width="18px"
-                height="18px"
-                fill="rgba(22, 22, 22, 0.5)"
-                className={boardHoverIcon}
-              />
-              <p className={boardName}>Project office</p>
-            </div>
-            <div className={iconsWrapper}>
-              <Icon
-                name="icon-pencil"
-                width="16px"
-                height="16px"
-                fill="gray"
-                className={hoverOnIcon}
-              />
-              <Icon
-                name="icon-trash"
-                width="16px"
-                height="16px"
-                fill="gray"
-                className={hoverOnIcon}
-              />
-            </div>
-          </li>
-
-          <li className={boardItem}>
-            <div className={titleWrapper}>
-              <Icon
-                name="icon-four-circles"
-                width="18px"
-                height="18px"
-                fill="rgba(22, 22, 22, 0.5)"
-                className={boardHoverIcon}
-              />
-              <p className={boardName}>Project office</p>
-            </div>
-            <div className={iconsWrapper}>
-              <Icon
-                name="icon-pencil"
-                width="16px"
-                height="16px"
-                fill="gray"
-                className={hoverOnIcon}
-              />
-              <Icon
-                name="icon-trash"
-                width="16px"
-                height="16px"
-                fill="gray"
-                className={hoverOnIcon}
-              />
-            </div>
-          </li>
+          {boards.map(item => (
+            <BoardItem key={item.id} title={item.boardTitle} />
+          ))}
         </ul>
 
         <section className={helpSection}>

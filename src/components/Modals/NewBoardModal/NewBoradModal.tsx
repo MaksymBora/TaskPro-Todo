@@ -2,10 +2,13 @@ import Modal from 'react-modal';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
 import { FC } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './NewBoardModal.module.css';
 import Icon from '@/components/utils/Icon';
 import { ModalsCreateButton } from '@/components/Global/ModalsCreateButton/ModalsCreateButton';
 import { images } from '@/assets/images/modal/allImages';
+import { AppDispatch } from '@/redux/store';
+import { createNewBoard } from '@/redux/dashboard/boardOperation';
 
 Modal.setAppElement('#modal-root');
 
@@ -41,8 +44,10 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
   handleCloseModal,
   setModalIsOpen,
 }) => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleSubmit = (values, actions) => {
-    console.log('test submit form', values);
+    dispatch(createNewBoard(values));
 
     actions.resetForm();
     setModalIsOpen(false);

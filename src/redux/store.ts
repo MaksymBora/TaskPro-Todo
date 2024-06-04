@@ -8,19 +8,39 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
+  PersistConfig,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authSlice } from './auth/authSlice';
+import { dashboardSlice } from './dashboard/boardSlice';
 
-const authPersistConfig = {
+interface User {
+  name: string;
+  email: string;
+}
+
+interface AuthState {
+  user: User;
+  isLoggedIn: boolean;
+  isRefreshing: boolean;
+  token: string | null;
+}
+
+const authPersistConfig: PersistConfig<AuthState> = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
+const persistedAuthReducer = persistReducer(
+  authPersistConfig,
+  authSlice.reducer
+);
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authSlice.reducer),
+    auth: persistedAuthReducer,
+    dashboard: dashboardSlice.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
