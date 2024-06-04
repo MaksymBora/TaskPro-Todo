@@ -7,6 +7,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { useAuth } from '@/hooks/useAuth';
 import { refreshing } from '@/redux/auth/authOperation';
 import { AppDispatch } from '@/redux/store';
+import { fetchBoards } from '@/redux/dashboard/boardOperation';
 
 const WelcomePage = lazy(() => import('@/Pages/Welcome/Welcome'));
 const AuthPage = lazy(() => import('@/Pages/Auth/AuthPage'));
@@ -23,6 +24,7 @@ export function App() {
     }
 
     dispatch(refreshing());
+    dispatch(fetchBoards());
   }, [dispatch, isLoggedIn]);
 
   return (

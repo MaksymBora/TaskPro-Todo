@@ -44,7 +44,6 @@ export const Sidebar: FC<SidebarPropTypes> = ({
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [helpModalIsOpen, setHelpModalIsOpen] = useState(false);
-
   const { boards } = useBoard();
 
   const dispatch = useDispatch<AppDispatch>();

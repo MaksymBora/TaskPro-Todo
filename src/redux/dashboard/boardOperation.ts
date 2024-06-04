@@ -15,13 +15,30 @@ interface CredentialsProps {
 }
 
 export const createNewBoard = createAsyncThunk(
-  'user/createNewBoard',
+  'dashboard/createNewBoard',
   async (credentials: CredentialsProps, thunkAPI) => {
     try {
       const res = await axios.post<CreateDashboardResponse[]>(
         '/user/createboard',
         credentials
       );
+
+      return res.data;
+    } catch (error) {
+      if (error instanceof Error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  }
+);
+
+export const fetchBoards = createAsyncThunk(
+  'dashboard/fetch',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('/user/boards');
 
       return res.data;
     } catch (error) {
