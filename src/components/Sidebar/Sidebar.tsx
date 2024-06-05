@@ -89,7 +89,7 @@ export const Sidebar: FC<SidebarPropTypes> = ({
 
         <ul className={boardsList}>
           {boards.map(item => (
-            <BoardItem key={item.id} title={item.boardTitle} />
+            <BoardItem key={item.id} title={item.boardTitle} id={item.id} />
           ))}
         </ul>
 

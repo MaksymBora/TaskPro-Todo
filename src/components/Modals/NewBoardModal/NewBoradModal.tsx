@@ -31,6 +31,7 @@ const customStyles = {
 
 const TitleSchema = Yup.object().shape({
   boardTitle: Yup.string().required('Title is required'),
+  icon: Yup.string().oneOf(iconsArray),
 });
 
 interface ModalPropTypes {
@@ -47,7 +48,13 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = (values, actions) => {
-    dispatch(createNewBoard(values));
+    const bgImageFileName = values.bgImage.split('/').pop().replace('.png', '');
+    const updatedValues = {
+      ...values,
+      bgImage: bgImageFileName,
+    };
+
+    dispatch(createNewBoard(updatedValues));
 
     actions.resetForm();
     setModalIsOpen(false);
@@ -71,7 +78,11 @@ export const NewBoardModal: FC<ModalPropTypes> = ({
         </button>
 
         <Formik
-          initialValues={{ boardTitle: '' }}
+          initialValues={{
+            boardTitle: '',
+            icon: 'four-circles',
+            bgImage: 'noBg',
+          }}
           validationSchema={TitleSchema}
           onSubmit={handleSubmit}
         >

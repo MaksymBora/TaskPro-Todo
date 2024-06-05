@@ -1,8 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectBoards } from '@/redux/dashboard/boardSelect';
+import {
+  selectBoards,
+  selectCurrentBoard,
+} from '@/redux/dashboard/boardSelect';
 
 export const useBoard = () => {
   const boards = useSelector(selectBoards);
+  const currentBoards = useSelector(selectCurrentBoard);
 
-  return { boards };
+  return { boards, currentBoards };
 };

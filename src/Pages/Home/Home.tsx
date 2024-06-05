@@ -1,19 +1,62 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Filter from '@/components/Filter/Filter';
 import css from './Home.module.css';
 import Icon from '@/components/utils/Icon';
 import { AddCardModal } from '@/components/Modals/AddCard/AddCardModal';
 import { AddColumn } from '@/components/Modals/AddColumn/AddColumn';
+import { useBoard } from '@/hooks/useBoard';
+import { useAuth } from '@/hooks/useAuth';
+import { AppDispatch } from '@/redux/store';
+import { fetchBoardById } from '@/redux/dashboard/boardOperation';
 
 const Home: FC = () => {
   const [modalAddCardIsOpen, setModalAddCardIsOpen] = useState<boolean>(false);
   const [modalAddColumnIsOpen, setModalAddColumnIsOpen] =
     useState<boolean>(false);
+  const navigate = useNavigate();
+  const { boardId } = useParams<{ boardId: string }>();
+  const { currentBoards } = useBoard();
+  const { isLoggedIn } = useAuth();
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const boardFromLS = localStorage.getItem('lastBoard');
+    if (!boardFromLS) return;
+
+    if (boardFromLS === boardId) return;
+
+    navigate(`/${boardFromLS}`);
+  }, [boardId, navigate]);
+
+  useEffect(() => {
+    if (!boardId) return;
+
+    if (!isLoggedIn) return;
+
+    dispatch(fetchBoardById(boardId));
+
+    // dispatch(fetchColumnsByBoardId(boardId));
+    // dispatch(fetchCards(boardId));
+  }, [boardId, dispatch, isLoggedIn]);
+
+  const baseUrl =
+    'https://res.cloudinary.com/dejz1vvem/image/upload/v1717610473/todo/desktop/';
 
   return (
-    <div className={css.container}>
+    <div
+      className={css.container}
+      style={{
+        backgroundImage: `url(${baseUrl}${currentBoards?.bgImage}.webp)`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }}
+    >
       <div className={css.projectNav}>
-        <p className={css.projectName}>Project office</p>
+        <p className={css.projectName}>{currentBoards?.boardTitle}</p>
         <Filter />
       </div>
       <div className={css.todoColumnsWrapper}>

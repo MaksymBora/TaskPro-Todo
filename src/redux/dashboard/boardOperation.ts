@@ -50,3 +50,20 @@ export const fetchBoards = createAsyncThunk(
     }
   }
 );
+
+export const fetchBoardById = createAsyncThunk(
+  'dashboard/fetchById',
+  async (boardId: string, thunkAPI) => {
+    try {
+      const res = await axios.get(`/user/${boardId}`);
+
+      return res.data;
+    } catch (error) {
+      if (error instanceof Error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+
+      return thunkAPI.rejectWithValue('An unknown error occurred');
+    }
+  }
+);

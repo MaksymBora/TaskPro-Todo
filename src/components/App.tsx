@@ -51,6 +51,12 @@ export function App() {
 
             <Route path="/" element={<Layout />}>
               <Route
+                path="/:boardId"
+                element={
+                  <PrivateRoute component={<HomePage />} redirect="/welcome" />
+                }
+              />
+              <Route
                 index
                 element={
                   <PrivateRoute component={<HomePage />} redirect="/welcome" />

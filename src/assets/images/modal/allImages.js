@@ -1,35 +1,35 @@
-import block from './block.png';
-import bg1 from './bg1.png';
-import bg2 from './bg2.png';
-import bg3 from './bg3.png';
-import bg4 from './bg4.png';
-import bg5 from './bg5.png';
-import bg6 from './bg6.png';
-import bg7 from './bg7.png';
-import bg8 from './bg8.png';
-import bg9 from './bg9.png';
-import bg10 from './bg10.png';
-import bg11 from './bg11.png';
-import bg12 from './bg12.png';
-import bg13 from './bg13.png';
-import bg14 from './bg14.png';
-import bg15 from './bg15.png';
+import noBack from './noBack.png';
+import northern2x from './northern2x.png';
+import baloons2x from './baloons2x.png';
+import beatch2x from './beatch2x.png';
+import cave2x from './cave2x.png';
+import baloon2x from './baloon2x.png';
+import boat2x from './boat2x.png';
+import redmoon2x from './redmoon2x.png';
+import bubble2x from './bubble2x.png';
+import moon2x from './moon2x.png';
+import rock2x from './rock2x.png';
+import flowers2x from './flowers2x.png';
+import clouds2x from './clouds2x.png';
+import leafs2x from './leafs2x.png';
+import mounts2x from './mounts2x.png';
+import diego2x from './diego2x.png';
 
 export const images = {
-  block,
-  bg1,
-  bg2,
-  bg3,
-  bg4,
-  bg5,
-  bg6,
-  bg7,
-  bg8,
-  bg9,
-  bg10,
-  bg11,
-  bg12,
-  bg13,
-  bg14,
-  bg15,
+  noBack,
+  northern2x,
+  baloons2x,
+  beatch2x,
+  cave2x,
+  baloon2x,
+  boat2x,
+  redmoon2x,
+  bubble2x,
+  moon2x,
+  rock2x,
+  flowers2x,
+  clouds2x,
+  leafs2x,
+  mounts2x,
+  diego2x,
 };
