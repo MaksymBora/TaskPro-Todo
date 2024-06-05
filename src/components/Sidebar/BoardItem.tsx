@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './Sidebar.module.css';
 import Icon from '../utils/Icon';
+import { useBoard } from '@/hooks/useBoard';
 
 const {
   boardName,
@@ -12,6 +13,7 @@ const {
   iconsWrapper,
   hoverOnIcon,
   boardHoverIcon,
+  boardItemSelected,
 } = css;
 
 interface BoardItemProps {
@@ -21,18 +23,24 @@ interface BoardItemProps {
 
 export const BoardItem: FC<BoardItemProps> = ({ title, id }) => {
   const navigate = useNavigate();
+  const { currentBoards } = useBoard();
 
-  const handleSelectBoard = (event, boardId) => {
+  const handleSelectBoard = (event, selectedBoardId) => {
     if (event.target.tagName === 'BUTTON' || event.target.closest('button')) {
       return;
     }
 
-    navigate(`/${boardId}`);
-    localStorage.setItem('lastBoard', boardId);
+    navigate(`/${selectedBoardId}`);
+    localStorage.setItem('lastBoard', selectedBoardId);
   };
 
   return (
-    <li className={boardItem} onClick={event => handleSelectBoard(event, id)}>
+    <li
+      className={`${boardItem} ${
+        currentBoards?.id === id ? boardItemSelected : ''
+      }  `}
+      onClick={event => handleSelectBoard(event, id)}
+    >
       <div className={titleWrapper}>
         <Icon
           name="icon-four-circles"

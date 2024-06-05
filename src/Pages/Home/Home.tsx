@@ -42,19 +42,16 @@ const Home: FC = () => {
     // dispatch(fetchCards(boardId));
   }, [boardId, dispatch, isLoggedIn]);
 
-  const baseUrl =
+  const baseUrlDesktop =
     'https://res.cloudinary.com/dejz1vvem/image/upload/v1717610473/todo/desktop/';
 
+  const baseUrlTablet =
+    'https://res.cloudinary.com/dejz1vvem/image/upload/v1717616044/todo/tablet/';
+  const baseUrlMobile =
+    'https://res.cloudinary.com/dejz1vvem/image/upload/v1717616407/todo/mobile/';
+
   return (
-    <div
-      className={css.container}
-      style={{
-        backgroundImage: `url(${baseUrl}${currentBoards?.bgImage}.webp)`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-      }}
-    >
+    <div className={css.container}>
       <div className={css.projectNav}>
         <p className={css.projectName}>{currentBoards?.boardTitle}</p>
         <Filter />
@@ -579,6 +576,26 @@ const Home: FC = () => {
         modalIsOpen={modalAddColumnIsOpen}
         setModalIsOpen={setModalAddColumnIsOpen}
       />
+
+      <style>
+        {`
+         @media screen and (max-width: 767px) {
+          .${css.container} {
+            background-image: url('${baseUrlMobile}${currentBoards?.bgImage}.webp');
+          }
+        }
+        @media screen and (min-width: 768px) {
+          .${css.container} {
+            background-image: url('${baseUrlTablet}${currentBoards?.bgImage}.webp');
+          }
+        }
+        @media screen and (min-width: 1440px) {
+          .${css.container} {
+            background-image: url('${baseUrlDesktop}${currentBoards?.bgImage}.webp');
+          }
+        }
+      `}
+      </style>
     </div>
   );
 };
